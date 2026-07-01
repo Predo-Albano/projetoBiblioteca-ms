@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: content}">
+<head>
+    <title>Formulário de Autor - Biblioteca MS</title>
+</head>
+<body>
+    <div>
+        <h2 th:text="${autor.id} ? '✏️ Editar Autor' : '➕ Novo Autor'">Novo Autor</h2>
+        
+        <form th:action="${autor.id} ? @{/autores/{id}(id=${autor.id})} : @{/autores}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" class="form-control" th:field="*{nome}" required />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Nacionalidade</label>
+                <input type="text" class="form-control" th:field="*{nacionalidade}" required />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Ano de Nascimento</label>
+                <input type="number" class="form-control" th:field="*{anoNascimento}" required min="1000" max="2024" />
+            </div>
+            
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="/autores" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{layout :: head}"></th:block>
+</head>
+<body>
+    <th:block th:replace="~{layout :: navbar}"></th:block>
+    
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">📚 Sistema de Biblioteca</h1>
+            <p class="lead">Arquitetura de Microsserviços com Spring Boot</p>
+            <hr class="my-4">
+            <p>Gerencie autores e livros através dos serviços disponíveis.</p>
+            <a class="btn btn-primary btn-lg" href="/autores" role="button">Ver Autores</a>
+            <a class="btn btn-success btn-lg" href="/livros" role="button">Ver Livros</a>
+        </div>
+    </div>
+    
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+</body>
+</html>

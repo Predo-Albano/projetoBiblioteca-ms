@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{layout :: head}"></th:block>
+</head>
+<body>
+    <th:block th:replace="~{layout :: navbar}"></th:block>
+    
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>📖 Lista de Livros</h2>
+            <a href="/livros/novo" class="btn btn-primary">+ Novo Livro</a>
+        </div>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th>Ano</th>
+                    <th>Disponível</th>
+                    <th>Autor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="livro : ${livros}">
+                    <td th:text="${livro.id}">1</td>
+                    <td th:text="${livro.titulo}">Dom Casmurro</td>
+                    <td th:text="${livro.genero}">Romance</td>
+                    <td th:text="${livro.anoPublicacao}">1899</td>
+                    <td>
+                        <span th:if="${livro.disponivel}" class="badge bg-success">Disponível</span>
+                        <span th:unless="${livro.disponivel}" class="badge bg-danger">Indisponível</span>
+                    </td>
+                    <td th:text="${livro.nomeAutor}">Autor</td>
+                    <td>
+                        <a th:href="@{/livros/{id}/editar(id=${livro.id})}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/livros/{id}/excluir(id=${livro.id})}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza?')">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: content}">
+<head>
+    <title>Formulário de Livro - Biblioteca MS</title>
+</head>
+<body>
+    <div>
+        <h2 th:text="${livro.id} ? '✏️ Editar Livro' : '➕ Novo Livro'">Novo Livro</h2>
+        
+        <form th:action="${livro.id} ? @{/livros/{id}(id=${livro.id})} : @{/livros}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            
+            <div class="mb-3">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-control" th:field="*{titulo}" required />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Gênero</label>
+                <input type="text" class="form-control" th:field="*{genero}" required />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Ano de Publicação</label>
+                <input type="number" class="form-control" th:field="*{anoPublicacao}" required min="1000" max="2024" />
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Disponível</label>
+                <select class="form-control" th:field="*{disponivel}">
+                    <option th:value="true">Sim</option>
+                    <option th:value="false">Não</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Autor</label>
+                <select class="form-control" th:field="*{autorId}" required>
+                    <option th:value="">Selecione...</option>
+                    <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.nome}"></option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="/livros" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

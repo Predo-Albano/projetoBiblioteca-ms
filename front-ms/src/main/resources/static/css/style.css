@@ -1,0 +1,100 @@
+/* Fundo com imagem ocupando a tela toda */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar - FORÇA COR PRETA E SEM ESPAÇO */
+.navbar {
+    background-color: #1a1a2e !important;
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-bottom: 3px solid #e94560;
+}
+
+.navbar .container {
+    background: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 10px 0 !important;
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-link:hover {
+    color: #e94560 !important;
+}
+
+/* Container principal com fundo branco semi-transparente */
+.container {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Tabelas */
+.table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+}
+
+.btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.badge {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+/* Cards */
+.jumbotron {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

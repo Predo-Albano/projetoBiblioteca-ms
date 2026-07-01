@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: content}">
+<head>
+    <title>Autores</title>
+</head>
+<body>
+    <div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>📝 Lista de Autores</h2>
+            <a href="/autores/novo" class="btn btn-primary">+ Novo Autor</a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Nacionalidade</th>
+                    <th>Ano</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="autor : ${autores}">
+                    <td th:text="${autor.id}"></td>
+                    <td th:text="${autor.nome}"></td>
+                    <td th:text="${autor.nacionalidade}"></td>
+                    <td th:text="${autor.anoNascimento}"></td>
+                    <td>
+                        <a th:href="@{/autores/{id}/editar(id=${autor.id})}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/autores/{id}/excluir(id=${autor.id})}" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
