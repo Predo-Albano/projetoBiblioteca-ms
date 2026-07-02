@@ -23,7 +23,8 @@ docker stop autor-ms
 docker start autor-ms
 8.Encerrar e remover todos os containers
 docker-compose down
-
+*9 CASO TUDO SUBA SEM ERRO E MESMO ASSIM DER ALGUM TIPO DE PROBLEMA (EMERGENCIAL)
+--force-recreate
 
 Funcionalidade	 URL
 Página inicial	 http://localhost
