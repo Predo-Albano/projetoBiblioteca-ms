@@ -1,24 +1,28 @@
  Pré-requisitos: Docker Desktop,Java 21+, Maven
 cd C:\Users\Eu\Desktop\biblioteca-microservicos"(seu local do arquivo)"
 Gerar os JARs dos serviços
-1.C:\Users\Eu\Desktop\biblioteca-microservicos
+1.cd C:\Users\Eu\Desktop\biblioteca-microservicos
 cd autor-ms
 .\mvnw.cmd clean package -DskipTests
-2.C:\Users\Eu\Desktop\biblioteca-microservicos
+2.cd C:\Users\Eu\Desktop\biblioteca-microservicos
 cd livro-ms
 .\mvnw.cmd clean package -DskipTests
-3.C:\Users\Eu\Desktop\biblioteca-microservicos
+3.cd C:\Users\Eu\Desktop\biblioteca-microservicos
 cd front-ms
 .\mvnw.cmd clean package -DskipTests
 4.Subir todos os containers
 docker-compose up --build
 5.Acessar o sistema
 http://localhost
-6.Para teste de quebra no microsserviço
+6.Restart docker
+docker restart api-gateway
+7.Para teste de quebra no microsserviço
 #Parar o autor-ms
 docker stop autor-ms
 #Iniciar novamente
 docker start autor-ms
+8.Encerrar e remover todos os containers
+docker-compose down
 
 
 Funcionalidade	 URL
